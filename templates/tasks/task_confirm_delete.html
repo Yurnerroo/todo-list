@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Delete Task</h1>
+
+  <p>You want to delete following task: <i>{{ task.content }}</i>.</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger"/>
+  </form>
+
+{% endblock %}
