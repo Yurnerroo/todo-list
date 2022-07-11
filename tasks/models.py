@@ -8,9 +8,15 @@ class Task(models.Model):
     complete = models.BooleanField()
     tags = models.ManyToManyField("Tag", related_name="tags")
 
+    class Meta:
+        ordering = ["complete", "-start"]
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        ordering = ["name"]
 
     def __str__(self):
         return f"{self.name}"
